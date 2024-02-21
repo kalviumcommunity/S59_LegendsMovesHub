@@ -1,0 +1,14 @@
+{
+  "name": "s59_legendsmoveshub",
+  "version": "1.0.0",
+  "description": "Welcome to LegendsMovesHub, where iconic sports moves take center stage! 🚀",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
