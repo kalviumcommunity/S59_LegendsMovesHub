@@ -29,6 +29,9 @@ mongoose.connect(mongoDBUri)
     isConnected = true;
     console.error('Error connecting to MongoDB:', error);
   });
+App.use(express.json());
+
+App.use(express.urlencoded({ extended: true }));
 
 App.use('/api', router);
 
@@ -41,3 +44,4 @@ const PORT = process.env.PORT || 8080;
 App.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });
+
