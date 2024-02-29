@@ -6,7 +6,6 @@ dotenv.config();
 
 const App = express();
 
-// MongoDB connection setup
 const mongoDBUser = process.env.MONGODB_USER;
 const mongoDBPassword = process.env.MONGODB_PASSWORD;
 const mongoDBCluster = process.env.MONGODB_CLUSTER;
@@ -31,22 +30,13 @@ mongoose.connect(mongoDBUri)
     console.error('Error connecting to MongoDB:', error);
   });
 
-// Middleware for parsing JSON bodies
-App.use(express.json());
+App.use('/api', router);
 
-// Middleware for parsing URL-encoded bodies
-App.use(express.urlencoded({ extended: true }));
-
-// Use the CRUD router
-App.use('/api', router); // Adjust the base path '/api' based on your preference
-
-// Root route
 App.get('/jj', (req, res) => {
   const connectionStatus = isConnected ? 'Connected to MongoDB✅' : 'Not connected to MongoDB❌';
   res.send(`<h1>Kamakshi</h1><p>${connectionStatus}</p>`);
 });
 
-// Start the server
 const PORT = process.env.PORT || 8080;
 App.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
