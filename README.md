@@ -18,4 +18,4 @@ LegendsMovesHub is a dynamic and engaging platform designed to celebrate legenda
 - **Community Contributions:** Users can suggest new signature moves or goal celebrations, fostering a collaborative community.
 - **Voting System:** Vote on the best move/celebration to promote creativity and recognition.
 
-By - kamakshi Pandoh
+Front-end deployment link - https://65e1b1a7a65c22b4e9f4a268--superlative-semifreddo-bca30e.netlify.app/
