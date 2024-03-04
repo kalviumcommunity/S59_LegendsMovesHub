@@ -19,3 +19,4 @@ LegendsMovesHub is a dynamic and engaging platform designed to celebrate legenda
 - **Voting System:** Vote on the best move/celebration to promote creativity and recognition.
 
 Front-end deployment link - https://65e1b1a7a65c22b4e9f4a268--superlative-semifreddo-bca30e.netlify.app/
+Back-end deployment link - https://s59-legendsmoveshub.onrender.com/api/data
