@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   return (
@@ -46,30 +47,35 @@ const LandingPage = () => {
       </Container>
 
       {/* Main Content */}
-      <Container style={{ marginTop: '2rem' }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
-            <Paper elevation={3} style={{ padding: '2rem', borderRadius: '12px', backgroundColor: '#fff' }}>
-              <Typography variant="h4" style={{ fontFamily: 'Poppins', marginBottom: '1rem', color: '#3498db' }}>
-                Football Highlights
-              </Typography>
-              <Typography style={{ fontFamily: 'Montserrat', color: '#333333' }}>
-                Explore the latest football news, scores, and highlights. Stay updated with your favorite teams and players.
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper elevation={3} style={{ padding: '2rem', borderRadius: '12px', backgroundColor: '#fff' }}>
-              <Typography variant="h4" style={{ fontFamily: 'Poppins', marginBottom: '1rem', color: '#3498db' }}>
-                Cricket Insights
-              </Typography>
-              <Typography style={{ fontFamily: 'Montserrat', color: '#333333' }}>
-                Dive into the world of cricket with in-depth analysis, match statistics, and player profiles. Your go-to source for cricket updates.
-              </Typography>
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
+<Container style={{ marginTop: '2rem' }}>
+  <Grid container spacing={3}>
+    <Grid item xs={12} md={6}>
+      <Link to="/football" style={{ textDecoration: 'none' }}>
+        <Paper elevation={3} style={{ padding: '2rem', borderRadius: '12px', backgroundColor: '#fff' }}>
+          <Typography variant="h4" style={{ fontFamily: 'Poppins', marginBottom: '1rem', color: '#3498db' }}>
+            Football Highlights
+          </Typography>
+          <Typography style={{ fontFamily: 'Montserrat', color: '#333333' }}>
+            Explore the latest football news, scores, and highlights. Stay updated with your favorite teams and players.
+          </Typography>
+        </Paper>
+      </Link>
+    </Grid>
+    <Grid item xs={12} md={6}>
+      <Link to="/cricket" style={{ textDecoration: 'none' }}>
+        <Paper elevation={3} style={{ padding: '2rem', borderRadius: '12px', backgroundColor: '#fff' }}>
+          <Typography variant="h4" style={{ fontFamily: 'Poppins', marginBottom: '1rem', color: '#3498db' }}>
+            Cricket Insights
+          </Typography>
+          <Typography style={{ fontFamily: 'Montserrat', color: '#333333' }}>
+            Dive into the world of cricket with in-depth analysis, match statistics, and player profiles. Your go-to source for cricket updates.
+          </Typography>
+        </Paper>
+      </Link>
+    </Grid>
+  </Grid>
+</Container>
+
 
       {/* Action */}
       <Container style={{ marginTop: '2rem', textAlign: 'center' }}>
