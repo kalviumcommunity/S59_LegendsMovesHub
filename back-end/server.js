@@ -17,7 +17,7 @@ const mongoDBCluster = process.env.MONGODB_CLUSTER;
 const mongoDBDatabase = process.env.MONGODB_DATABASE;
 
 // const mongoDBUri = `mongodb+srv://${mongoDBUser}:${mongoDBPassword}@${mongoDBCluster}.tcq0r47.mongodb.net/${mongoDBDatabase}?retryWrites=true&w=majority&appName=Cluster0`;
-const mongoDBUri = `mongodb+srv://kamakshipandoh8:${mongoDBPassword}@cluster1.fdt2xgt.mongodb.net/Main?retryWrites=true&w=majority&appName=Cluster1`
+const mongoDBUri = `mongodb+srv://kamakshipandoh8:kamakshiashmitpandoh@cluster1.fdt2xgt.mongodb.net/Main?retryWrites=true&w=majority&appName=Cluster1`
 
 let isConnected = false;
 
