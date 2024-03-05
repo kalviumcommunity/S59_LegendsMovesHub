@@ -5,26 +5,27 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Football = () => {
-    const [celebrationsData, setCelebrationsData] = useState({ Goals: [], Celebrations: [] });
-    const [Goals, setGoals] = useState([])
+    const [goalsData, setGoalsData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch('https://s59-legendsmoveshub.onrender.com/api/data/football')
-        .then(res => res.json())
-        .then(res => {
-            console.log(res);
-            setGoals(res);
-        })
-        .catch(err => console.warn(err))
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                setGoalsData(res);
+            })
+            .catch(err => console.warn(err))
+            .finally(() => setLoading(false)); 
     }, []);
-    
 
     const renderSegment = (segmentData, title) => {
         console.log(segmentData);
         console.log(`${title} Length:`, segmentData.length);
-    
+
         return (
             <div style={{ marginBottom: '2rem' }}>
                 <Typography variant="h4" gutterBottom style={{ fontFamily: 'Playfair Display', color: '#333333' }}>
@@ -55,12 +56,14 @@ const Football = () => {
             </div>
         );
     };
-    
 
     return (
-        <Container style={{ paddingTop: '2rem', textAlign: 'center' }}>
-            {renderSegment(Goals, 'Iconic Goals')}
-            {/* {renderSegment(celebrationsData.Celebrations, 'Crazy & Iconic Celebrations')} */}
+        <Container style={{ paddingTop: '2rem', textAlign: 'center', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {loading ? (
+                <CircularProgress size={80} style={{ color: '#3498db' }} />
+            ) : (
+                renderSegment(goalsData, 'Iconic Goals')
+            )}
         </Container>
     );
 };
