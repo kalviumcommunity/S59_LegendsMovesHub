@@ -7,11 +7,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 
 const Football = () => {
-    const [celebrationsData, setCelebrationsData] = useState({ Goals: [], Celebrations: [] });
     const [Goals, setGoals] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/data/football')
+        fetch('http://localhost:8080/api/data/cricket')
         .then(res => res.json())
         .then(res => {
             console.log(res);
@@ -59,7 +58,7 @@ const Football = () => {
 
     return (
         <Container style={{ paddingTop: '2rem', textAlign: 'center' }}>
-            {renderSegment(Goals, 'Iconic Goals')}
+            {renderSegment(Goals, 'Iconic Shots and Celebrations')}
             {/* {renderSegment(celebrationsData.Celebrations, 'Crazy & Iconic Celebrations')} */}
         </Container>
     );
