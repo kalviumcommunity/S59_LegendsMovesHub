@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const router = express.Router();
 const handlers = require('./handlers'); 
 
-const footballSchema = new mongoose.Schema({
+const mainSchema = new mongoose.Schema({
     type: { type: String },
     title: { type: String },
     description: { type: String },
@@ -11,15 +11,21 @@ const footballSchema = new mongoose.Schema({
 });
 
 
-const celebrations = mongoose.model('celebfootballs', footballSchema);
+const celebrations = mongoose.model('celebfootball', mainSchema);
+const celebcrickets = mongoose.model('celebcrickets', mainSchema);
 
 
 router.post('/create', handlers.createItem);
 
 router.get('/read', handlers.readItems);
 
-router.get('/data', async(req,res)=>{
+router.get('/data/football', async(req,res)=>{
     let data = await celebrations.find()
+    res.send(data)
+})
+
+router.get('/data/cricket', async(req,res)=>{
+    let data = await celebcrickets.find()
     res.send(data)
 })
 

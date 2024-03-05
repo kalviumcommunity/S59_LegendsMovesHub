@@ -1,154 +1,80 @@
-{
-  "CombinedArray": [
-    {
-      "type": "goal",
-      "title": "Maradona's Goal of the Century (1986 World Cup)",
-      "description": "A solo run dribbling past multiple defenders before a stunning finish against England.",
-      "image": "https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt38b5909f8e57e79d/60e0e160ab06fd2f08ef707a/d72210369d01815ec3af73b251f914e658e04497.jpg?auto=webp&format=pjpg&width=1080&quality=60"
-    },
-    {
-      "type": "goal",
-      "title": "Messi's Dribble Past Boateng (2015 Champions League)",
-      "description": "Messi's mesmerizing dribble leaving Jerome Boateng bewildered before scoring against Barcelona's rivals Bayern Munich.",
-      "image": "https://pbs.twimg.com/media/CIQzcBuUkAAswF8.jpg"
-    },
-    {
-      "type": "goal",
-      "title": "Zidane's Volley vs Bayer Leverkusen (2002 Champions League Final)",
-      "description": "A stunning left-footed volley from outside the box to win the final for Real Madrid.",
-      "image": "https://editorial.uefa.com/resources/025d-0f6967493593-e4062dba1617-1000/format/wide1/bayer_leverkusen_v_real_madrid_-_champions_league_final_2002.jpeg?imwidth=988"
-    },
-    {
-      "type": "goal",
-      "title": "Beckham's Bend It Like Beckham Free Kick (1996)",
-      "description": "A physics-defying free kick against Greece that secured England's qualification for the 1998 World Cup.",
-      "image": "https://imgs.search.brave.com/W1klbzrR9C0Q8nVQI-c8rn2rctZOVxtM1W3zyahFKVM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90YWxr/c3BvcnQuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy9zaXRlcy81/LzIwMjEvMTAvTklO/VENIREJQSUNUMDAw/Njg0OTIzNDI1Lmpw/Zz9zdHJpcD1hbGwm/dz05NjAmcXVhbGl0/eT0xMDA"
-    },
-    {
-      "type": "goal",
-      "title": "Puskas's Puskas Award Winning Goal (1968)",
-      "description": "A spectacular long-range goal against England, inspiring the creation of the Puskas Award for the best goal of the year.",
-      "image": "https://imgs.search.brave.com/HV-kwFCeiQBGi_wvsZhJc1WnMvppxU7phK8MtLj4BJc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9oaXN0/b3J5b2Zzb2NjZXIu/aW5mby93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMi8wNi9GZXJl/bmMtUHVza2ElQ0Ml/ODFzLWtlZXBpbmct/dGhlLWJhbGwtdXAu/d2VicA"
-    },
-    {
-      "type": "goal",
-      "title": "Gerrard's Last-Minute Slip vs Chelsea (2014 Premier League)",
-      "description": "While not a positive moment, it's an iconic one. Gerrard's slip that allowed Demba Ba to score and ultimately cost Liverpool the Premier League title.",
-      "image": "https://content.api.news/v3/images/bin/833feac2ee66f711fb479dd6f5882807?width=768"
-    },
-    {
-      "type": "goal",
-      "title": "Henry's Solo Goal vs Arsenal (2004)",
-      "description": "Thierry Henry's unstoppable run from inside his own half and finish against his rivals Tottenham Hotspur showcases his pace and power.",
-      "image": "https://e0.365dm.com/20/05/1600x900/skysports-thierry-henry-wigan_4984462.jpg?20200506142724"
-    },
-    {
-      "type": "goal",
-      "title": "Bergkamp's Wonder Goal vs Newcastle (1997)",
-      "description": "Dennis Bergkamp's audacious touch and finish against Newcastle United displays pure skill and improvisation.",
-      "image": "https://i.guim.co.uk/img/media/c6edfbbdeec1bdde0c246bd0676160f285d6aca3/0_85_919_551/919.jpg?width=700&dpr=2&s=none"
-    },
-    {
-      "type": "goal",
-      "title": "Ronaldo's Overhead Kick vs Juventus (2018 Champions League)",
-      "description": "A breathtaking overhead kick against his former club Juventus in the Champions League quarter-final.",
-      "image": "https://i.guim.co.uk/img/media/3518924a10436f43fbb4d9146e7c719523b829c5/0_57_5568_3341/master/5568.jpg?width=700&dpr=2&s=none"
-    },
-    {
-      "type": "goal",
-      "title": "Robben's Cut Inside Goal (2010 World Cup Final)",
-      "description": "Arjen Robben's signature move, cutting inside and curling the ball into the net, secured victory for Netherlands against Spain.",
-      "image": "https://imgs.search.brave.com/Io2yQe0P_TB5dj3sWXM5fY0A7caRAbd5kEbGzOY8o9o/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuZ29hbC5jb20v/djMvYXNzZXRzL2Js/dGNjN2E3ZmZkMmZi/ZjcxZjUvYmx0MGRh/NjI2N2I1ZGFlNWQ0/YS82MGRkYzdmNmEz/N2FkYTBmMmNkNmMx/NjAvMzRiOTNkNDdk/YjFkMjJhYWU2Mjkz/NmU1NjYwYzM5NjU2/MDdkYjE2Yy5qcGc_/YXV0bz13ZWJwJmZv/cm1hdD1wanBnJndp/ZHRoPTM4NDAmcXVh/bGl0eT02MA"
-    },
-    {
-      "type": "goal",
-      "title": "Iniesta's World Cup Winner (2010)",
-      "description": "A late dramatic goal from Andres Iniesta against Netherlands brought Spain their first World Cup title.",
-      "image": "https://experiencefootball.com/wp-content/uploads/2020/10/andres-iniesta-spain-netherlands-world-cup-final_143dj03roieyw1oaiqor9o5uue.jpg"
-    },
-    {
-      "type": "goal",
-      "title": "Mahrez's Curler vs Leicester (2016 Premier League)",
-      "description": "Riyad Mahrez's stunning long-range curler against Leicester City helped propel Leicester to their incredible Premier League title win.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "goal",
-      "title": "Bale's Overhead Kick vs Real Madrid (2018 Champions League Final)",
-      "description": "A spectacular overhead kick from Gareth Bale in the Champions League final helped Real Madrid secure their third consecutive title.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "goal",
-      "title": "Salah's Dribble vs Roma (2018 Champions League)",
-      "description": "Mohamed Salah's mesmerizing dribble and finish against Roma in the Champions League semi-final showcased his brilliance.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "goal",
-      "title": "Haaland's Solo Goal vs Manchester United (2023)",
-      "description": "Erling Haaland's powerful solo run and finish against Manchester United is a recent example of an iconic goal. (Note: Assuming this scenario for 2023)",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Cristiano Ronaldo's 'Siu' Celebration",
-      "description": "A high jump, spin, and shout of 'Siu!' has become Ronaldo's signature move.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Lionel Messi's Pointing Celebration",
-      "description": "A more subdued but iconic celebration involving Messi pointing to the sky after scoring.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Marco Tardelli's Primal Scream",
-      "description": "An emotional outburst after scoring in the 1982 World Cup final.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Ronaldinho's Samba Dance",
-      "description": "A celebration reflecting his joyful playing style.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Mario Balotelli's 'Why Always Me?' T-Shirt",
-      "description": "A controversial yet unforgettable celebration after scoring.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Mesut Özil's Sniper Celebration",
-      "description": "Mimicking a sniper with his hand to his ear after scoring.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Antoine Griezmann's Griddy Dance",
-      "description": "A popular dance celebration from Fortnite.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Paul Pogba's Dab",
-      "description": "A celebration imitated by athletes across different sports.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Dele Alli's Okay Gesture",
-      "description": "Holding an 'OK' hand gesture with a wink.",
-      "image": "https://dummyurl.com"
-    },
-    {
-      "type": "celebration",
-      "title": "Edinson Cavani's Arrow Celebration",
-      "description": "Drawing back an imaginary bow and arrow and firing it towards the fans.",
-      "image": "https://dummyurl.com"
-    }
-  ]
-}
+[
+  {
+    "type": "Ball",
+    "title": "Ball of the Century: Shane Warne's Delivery to Mike Gatting (1999 Ashes)",
+    "description": "A delivery that defied logic, spinning viciously from outside the leg stump to clip Mike Gatting's bails. This moment marked the arrival of Shane Warne as a legend.",
+    "image": "https://www.espncricinfo.com/story/why-the-gatting-ball-is-not-the-best-of-the-century-918365"
+  },
+  {
+    "type": "Shot",
+    "title": "Sachin Tendulkar's Straight Drive at Lord's (1990)",
+    "description": "A young Tendulkar's majestic straight drive off a fast bowler at the iconic Lord's Cricket Ground announced his arrival on the world stage.",
+    "image": "https://www.espncricinfo.com/cricketers/sachin-tendulkar-35320"
+  },
+  {
+    "type": "Celebration",
+    "title": "Adam Gilchrist's Bat Flip at Sydney (2003 World Cup)",
+    "description": "A jubilant celebration after hitting a six to win the 2003 World Cup final for Australia.",
+    "image": "https://www.icc-cricket.com/news/adam-gilchrist-inducted-into-the-icc-cricket-hall-of-fame"
+  },
+  {
+    "type": "Catch",
+    "title": "Jonty Rhodes' Flying Catch at Centurion (1992 World Cup)",
+    "description": "A gravity-defying one-handed diving catch by Jonty Rhodes to dismiss Inzamam-ul-Haq, considered one of the greatest ever taken.",
+    "image": "https://www.espncricinfo.com/story/a-catch-that-drew-applause-from-jonty-rhodes-454733"
+  },
+  {
+    "type": "Ball",
+    "title": "Wasim Akram's Inswing Yorker to Robin Smith (1992 World Cup)",
+    "description": "A perfectly executed delivery that rattled Robin Smith's stumps and turned the tide of the 1992 World Cup final.",
+    "image": "https://www.youtube.com/watch?v=vI3kw0hpwsw"
+  },
+  {
+    "type": "Shot",
+    "title": "VVS Laxman's 281 at the SCG (2001 Border-Gavaskar Trophy)",
+    "description": "A gritty and defiant double century against all odds on a turning Sydney Cricket Ground pitch, helping India win a historic Test match.",
+    "image": "https://www.espncricinfo.com/cricketers/vvs-laxman-30750/bowling-batting-stats"
+  },
+  {
+    "type": "Shot",
+    "title": "MS Dhoni's Helicopter Shot in World Cup Final (2011)",
+    "description": "A cool and calculated shot to finish the 2011 World Cup final for India in style.",
+    "image": "https://m.youtube.com/watch?v=yWZx0c45Yx8"
+  },
+  {
+    "type": "Shot",
+    "title": "Brian Lara's 501 (2003)",
+    "description": "Lara's record-breaking innings of 501 not out against England remains the highest individual score in Test cricket history.",
+    "image": "https://www.espncricinfo.com/series/britannic-assurance-county-championship-1994-462129/warwickshire-vs-durham-462128/full-scorecard"
+  },
+  {
+    "type": "Ball",
+    "title": "Mitchell Johnson's Yorker to Stuart Broad (2013 Ashes)",
+    "description": "A brutal, fast yorker that dismantled Stuart Broad's stumps and symbolized Australia's dominance in the 2013 Ashes series.",
+    "image": "https://www.espncricinfo.com/photo/mitchell-johnson-with-girlfriend-jessica-bratich-273861"
+  },
+  {
+    "type": "Celebration",
+    "title": "Yuvraj Singh's Six Sixes off Stuart Broad (2007 World Cup)",
+    "description": "An incredible feat of hitting six consecutive sixes off a single over, etching his name in cricket history.",
+    "image": "https://www.espncricinfo.com/cricketers/yuvraj-singh-36084/bowling-batting-stats"
+  },
+  {
+    "type": "Run Out",
+    "title": "Ricky Ponting's Run Out of Inzamam-ul-Haq (2003 World Cup Final)",
+    "description": "A crucial run-out that turned the tide in the thrilling 2003 World Cup final.",
+    "image": "https://www.espncricinfo.com/cricketers/ricky-ponting-7133/bowling-batting-stats"
+  },
+  {
+    "type": "Wicket",
+    "title": "Muttiah Muralitharan's 800th Test Wicket (2007)",
+    "description": "Becoming the first bowler to reach 800 Test wickets, a record that still stands today.",
+    "image": "https://www.espncricinfo.com/story/muttiah-muralitharan-stats-analysis-467578"
+  },
+  {
+    "type": "Catch",
+    "title": "Andrew Symonds' One-Handed Catch at Point (2006 Ashes)",
+    "description": "A spectacular one-handed catch at point to dismiss Kevin Pietersen, a turning point in the 2006 Ashes series.",
+    "image": "https://dummyurl.com"
+  }
+]
