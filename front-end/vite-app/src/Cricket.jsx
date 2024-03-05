@@ -10,7 +10,7 @@ const Football = () => {
     const [Goals, setGoals] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/data/cricket')
+        fetch('https://s59-legendsmoveshub.onrender.com/api/data/cricket')
         .then(res => res.json())
         .then(res => {
             console.log(res);
