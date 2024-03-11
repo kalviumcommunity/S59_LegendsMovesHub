@@ -43,7 +43,6 @@ router.post('/create/cricket', async (req, res) => {
   }
 });
 
-
   router.post('/create/football', async (req, res) => {
     try {
       const type = req.body.category;
@@ -58,8 +57,58 @@ router.post('/create/cricket', async (req, res) => {
     }
   });
 
+  router.delete('/data/football/delete/:id', async (req, res) => {
+    try {
+        const itemId = req.params.id;
+        await celebrations.findByIdAndDelete(itemId);
+        res.json({ success: true, message: 'Item deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting item:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error', error: error });
+    }
+});
+
+router.delete('/data/cricket/delete/:id', async (req, res) => {
+  try {
+      const itemId = req.params.id;
+      await celebcrickets.findByIdAndDelete(itemId);
+      res.json({ success: true, message: 'Item deleted successfully' });
+  } catch (error) {
+      console.error('Error deleting item:', error);
+      res.status(500).json({ success: false, message: 'Internal Server Error', error: error });
+  }
+});
+
+router.put('/data/football/update/:id', async (req, res) => {
+  try {
+    const itemId = req.params.id;
+    const updatedData = req.body;
+    const result = await celebrations.findByIdAndUpdate(itemId, updatedData, { new: true });
+    res.json({ success: true, message: 'Item updated successfully', updatedItem: result });
+  } catch (error) {
+    console.error('Error updating item:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error', error: error });
+  }
+});
+
+router.put('/data/cricket/update/:id', async (req, res) => {
+  try {
+    const itemId = req.params.id;
+    const updatedData = req.body;
+    const result = await celebcrickets.findByIdAndUpdate(itemId, updatedData, { new: true });
+    res.json({ success: true, message: 'Item updated successfully', updatedItem: result });
+  } catch (error) {
+    console.error('Error updating item:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error', error: error });
+  }
+});
+
+
+
+
+
+
+
 router.get('/read', handlers.readItems);
-router.put('/update/:id', handlers.updateItem);
-router.delete('/delete/:id', handlers.deleteItem);
 
 module.exports = router;
