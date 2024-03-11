@@ -36,10 +36,10 @@ mongoose.connect(mongoDBUri)
     console.error('Error connecting to MongoDB:', error);
   });
 App.use(express.json());
+App.use('/api', router);
 
 App.use(express.urlencoded({ extended: true }));
 
-App.use('/api', router);
 
 App.get('/jj', (req, res) => {
   const connectionStatus = isConnected ? 'Connected to MongoDB✅' : 'Not connected to MongoDB❌';
