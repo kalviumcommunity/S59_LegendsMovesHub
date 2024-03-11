@@ -7,45 +7,57 @@ import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
+import backgroundImg from './assets/wall1.jpg'
 
 const LandingPage = () => {
   return (
-    <div style={{ backgroundColor: '#f4f4f4', minHeight: '100vh', color: '#333' }}>
+    <div
+    style={{
+      backgroundColor: '#f4f4f4',
+      minHeight: '100vh',
+      color: '#333',
+      overflowY: 'auto', 
+    }}
+  >
 
-      {/* Navigation Bar */}
-      <AppBar position="static" color="primary" elevation={0}>
-        <Toolbar style={{ justifyContent: 'space-between', backgroundColor: '#2c3e50', color: '#fff' }}>
-          <Typography variant="h6" component="div" style={{ fontFamily: 'Playfair Display' }}>
+    {/* Navigation Bar */}
+    <AppBar position="static" color="primary" elevation={0}>
+      <Toolbar style={{ justifyContent: 'space-between', backgroundColor: '#2c3e50', color: '#fff' }}>
+        <Typography variant="h6" component="div" style={{ fontFamily: 'Playfair Display' }}>
           LegendsMovesHub
-          </Typography>
-          <div>
-            <Button color="inherit">Football</Button>
-            <Button color="inherit">Cricket</Button>
-            <Button color="inherit">About</Button>
-            <Button color="inherit">Contact</Button>
-          </div>
-        </Toolbar>
-      </AppBar>
+        </Typography>
+        <div>
+          <Button color="inherit">Football</Button>
+          <Button color="inherit">Cricket</Button>
 
-      {/* Centre Section */}
-      <Container
-        maxWidth="xl"
-        style={{
-          background: 'linear-gradient(to right, #3498db, #1abc9c)',
-          height: '400px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: '#fff',
-          textAlign: 'center',
-          marginBottom: '2rem',
-        }}
-      >
-        <Typography variant="h2" style={{ fontFamily: 'Bungee', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', background: '-webkit-linear-gradient(#3498db, #1abc9c)', WebkitBackgroundClip: 'text', color: 'transparent' }}>
+          <Link to="/data" style={{ textDecoration: 'none' }}>
+          <Button color="inherit">Add</Button>
+          </Link>
+          
+          <Button color="inherit">Contact</Button>
+        </div>
+      </Toolbar>
+    </AppBar>
+
+    {/* Background Image */}
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        filter: 'blur(5px)', 
+        height: '100vh', 
+      }}
+    >
+    </div>
+     <Container>
+        <Typography variant="h2" style={{ fontFamily: 'Bungee', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)',}}>
           Welcome to LegendsMovesHub
         </Typography>
       </Container>
 
+      
       {/* Main Content */}
 <Container style={{ marginTop: '2rem' }}>
   <Grid container spacing={3}>
@@ -76,16 +88,6 @@ const LandingPage = () => {
   </Grid>
 </Container>
 
-
-      {/* Action */}
-      <Container style={{ marginTop: '2rem', textAlign: 'center' }}>
-        <Typography variant="h4" gutterBottom style={{ fontFamily: 'Playfair Display', color: '#333333' }}>
-          Ready to experience the excitement?
-        </Typography>
-        <Button variant="contained" color="primary" style={{ borderRadius: '24px', fontFamily: 'Roboto', backgroundColor: '#3498db' }}>
-          Get Started
-        </Button>
-      </Container>
     </div>
   );
 };
