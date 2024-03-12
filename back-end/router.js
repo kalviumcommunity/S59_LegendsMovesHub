@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
 const handlers = require('./handlers');
+const Joi = require('joi');
 
 const mainSchema = new mongoose.Schema({
   type: { type: String },
@@ -9,6 +10,15 @@ const mainSchema = new mongoose.Schema({
   description: { type: String },
   image: { type: String }
 });
+
+const celebrationSchema = Joi.object({
+  category: Joi.string().required(),
+  type: Joi.string().required(),
+  title: Joi.string().required(),
+  description: Joi.string().required(),
+  image: Joi.string().required(),
+});
+
 
 const celebrations = mongoose.model('celebfootball', mainSchema);
 const celebcrickets = mongoose.model('celebcrickets', mainSchema);
@@ -27,6 +37,12 @@ router.post('/create/cricket', async (req, res) => {
   try {
     const type = req.body.category;
 
+    const { error } = celebrationSchema.validate(req.body, { abortEarly: false });
+    if (error) {
+      const errorMessages = error.details.map(detail => detail.message);
+      return res.status(400).json({ success: false, message: 'Invalid data', errors: errorMessages });
+    }
+
     if (type === 'cricket') {
       const newItem = new celebcrickets(req.body);
       let saved = await newItem.save();
@@ -43,19 +59,26 @@ router.post('/create/cricket', async (req, res) => {
   }
 });
 
-  router.post('/create/football', async (req, res) => {
-    try {
-      const type = req.body.category;
-      const newItem = new celebrations(req.body);
-      let saved = await newItem.save();
+router.post('/create/football', async (req, res) => {
+  try {
+    const type = req.body.category;
 
-      console.log(saved)
-      res.status(201).json({ success: true, message: 'Item created successfully', obj : saved });
-    } catch (error) {
-      console.error('Error creating item:', error);
-      res.status(500).json({ success: false, message: 'Internal Server Error', error : error });
+    const { error } = celebrationSchema.validate(req.body, { abortEarly: false });
+    if (error) {
+      const errorMessages = error.details.map(detail => detail.message);
+      return res.status(400).json({ success: false, message: 'Invalid data', errors: errorMessages });
     }
-  });
+
+    const newItem = new celebrations(req.body);
+    let saved = await newItem.save();
+
+    console.log(saved);
+    res.status(201).json({ success: true, message: 'Item created successfully', obj: saved });
+  } catch (error) {
+    console.error('Error creating item:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error', error: error });
+  }
+});
 
   router.delete('/data/football/delete/:id', async (req, res) => {
     try {
