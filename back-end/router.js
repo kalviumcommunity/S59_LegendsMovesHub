@@ -19,6 +19,15 @@ const celebrationSchema = Joi.object({
   image: Joi.string().required(),
 });
 
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  email: { type: String, required: true },
+});
+
+const User = mongoose.model('users', userSchema);
+
+
 
 const celebrations = mongoose.model('celebfootball', mainSchema);
 const celebcrickets = mongoose.model('celebcrickets', mainSchema);
@@ -126,6 +135,47 @@ router.put('/data/cricket/update/:id', async (req, res) => {
   }
 });
 
+router.post('/signup', async (req, res) => {
+  try {
+    const { username, password, email } = req.body;
+
+    // Check if the user already exists
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      return res.status(400).json({ success: false, message: 'Username already exists' });
+    }
+
+    // Create a new user
+    const newUser = new User({ username, password, email });
+    await newUser.save();
+
+    res.status(201).json({ success: true, message: 'User registered successfully' });
+  } catch (error) {
+    console.error('Error registering user:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error', error });
+  }
+});
+
+router.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    // Check if the user exists
+    const user = await User.findOne({ username, password });
+
+    if (user) {
+      // User found, consider adding additional validation like password comparison
+
+      res.status(200).json({ success: true, message: 'Login successful' });
+    } else {
+      // User not found or password is incorrect
+      res.status(401).json({ success: false, message: 'Invalid username or password' });
+    }
+  } catch (error) {
+    console.error('Error logging in:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+});
 
 
 
