@@ -3,8 +3,8 @@ const cors = require("cors")
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-const App = express();
-App.use(cors());
+const app = express();
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 
 
 const router = require('./router'); 
@@ -35,19 +35,19 @@ mongoose.connect(mongoDBUri)
     isConnected = true;
     console.error('Error connecting to MongoDB:', error);
   });
-App.use(express.json());
-App.use('/api', router);
+app.use(express.json());
+app.use('/api', router);
 
-App.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 
-App.get('/jj', (req, res) => {
+app.get('/jj', (req, res) => {
   const connectionStatus = isConnected ? 'Connected to MongoDB✅' : 'Not connected to MongoDB❌';
   res.send(`<h1>Kamakshi</h1><p>${connectionStatus}</p>`);
 });
 
 const PORT = process.env.PORT || 8080;
-App.listen(PORT, () => {
-  console.log(`App is running on port ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`app is running on port ${PORT}`);
 });
 
