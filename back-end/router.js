@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const handlers = require('./handlers');
 const Joi = require('joi');
+const jwt = require('jsonwebtoken');
 
 const mainSchema = new mongoose.Schema({
   type: { type: String },
@@ -139,13 +140,11 @@ router.post('/signup', async (req, res) => {
   try {
     const { username, password, email } = req.body;
 
-    // Check if the user already exists
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ success: false, message: 'Username already exists' });
     }
 
-    // Create a new user
     const newUser = new User({ username, password, email });
     await newUser.save();
 
@@ -160,15 +159,29 @@ router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    // Check if the user exists
     const user = await User.findOne({ username, password });
 
     if (user) {
-      // User found, consider adding additional validation like password comparison
+     
+      const token = jwt.sign({ userId: user._id, username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+      res.cookie('token', token, {
+        httpOnly: false,
+        sameSite: 'strict',
+        maxAge: 3600000, 
+        secure: true
+      });
+
+      res.cookie('username', user.username, {
+        httpOnly: false, 
+        sameSite: 'strict',
+        maxAge: 3600000,
+        secure: true 
+      });
 
       res.status(200).json({ success: true, message: 'Login successful' });
     } else {
-      // User not found or password is incorrect
+  
       res.status(401).json({ success: false, message: 'Invalid username or password' });
     }
   } catch (error) {

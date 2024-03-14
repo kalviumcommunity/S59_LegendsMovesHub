@@ -9,7 +9,7 @@ const Signout = () => {
 
   const handleLogout = () => {
     document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure';
-    document.cookie = 'password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure';
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=None; Secure';
     window.location.href = '/signup';
   };
   
