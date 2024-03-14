@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
 import backgroundImg from './assets/wall1.jpg';
 import IconButton from '@mui/material/IconButton';
-import Avatar from '@mui/material/Avatar';
 import AddIcon from '@mui/icons-material/Add';
 import PhoneIcon from '@mui/icons-material/Phone';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
@@ -59,25 +57,26 @@ const LandingPage = () => {
                 </Typography>
               </>
             )}
+
+            {/*form button */}
             <Link to="/data" style={{ textDecoration: 'none' }}>
               <IconButton color="inherit" style={{ marginLeft: '8px' }}>
                 <AddIcon fontSize="large" style={{ fontWeight: 'bold', color: 'white' }} />
               </IconButton>
             </Link>
+
+            {/*phone button */}
             <IconButton color="inherit" style={{ marginLeft: '8px', color: 'white' }}>
               <PhoneIcon fontSize="large" />
             </IconButton>
+            
+            {/*signin button */}
             <Link to="/signup" style={{ textDecoration: 'none' }}>
-              {username ? (
-                <IconButton color="inherit" style={{ marginLeft: '8px', color: 'white' }}>
-                  <Avatar src="/path/to/profile-image.jpg" alt="Profile" />
-                </IconButton>
-              ) : (
                 <IconButton color="inherit" style={{ marginLeft: '8px', color: 'white' }}>
                   <PersonIcon fontSize="large" />
                 </IconButton>
-              )}
             </Link>
+            {/*signout button */}
             <Link to="/signout" style={{ textDecoration: 'none' }}>
               <IconButton color="inherit" onClick={handleLogout} style={{ color: 'white' }}>
                 <ExitToAppIcon fontSize="large" />

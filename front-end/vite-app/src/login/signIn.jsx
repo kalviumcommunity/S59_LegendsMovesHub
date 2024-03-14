@@ -38,11 +38,9 @@ const LoginForm = () => {
         console.log(data);
   
         if (data.success) {
+          
           console.log('User logged in successfully');
 
-          document.cookie = `username=${formData.username}; SameSite=None; Secure`;
-          document.cookie = `password=${formData.password}; SameSite=None; Secure`;
-  
           setLoginSuccess(true);
           window.location.href = '/';
   
