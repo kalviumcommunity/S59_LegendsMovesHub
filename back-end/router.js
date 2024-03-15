@@ -6,6 +6,7 @@ const Joi = require('joi');
 const jwt = require('jsonwebtoken');
 
 const mainSchema = new mongoose.Schema({
+  name: { type: String },
   type: { type: String },
   title: { type: String },
   description: { type: String },
@@ -13,6 +14,7 @@ const mainSchema = new mongoose.Schema({
 });
 
 const celebrationSchema = Joi.object({
+  name: Joi.string().required(),
   category: Joi.string().required(),
   type: Joi.string().required(),
   title: Joi.string().required(),
@@ -45,7 +47,7 @@ router.get('/data/cricket', async (req, res) => {
 
 router.post('/create/cricket', async (req, res) => {
   try {
-    const type = req.body.category;
+    const { category, name, type, title, description, image } = req.body; // Extract name from request body
 
     const { error } = celebrationSchema.validate(req.body, { abortEarly: false });
     if (error) {
@@ -53,12 +55,12 @@ router.post('/create/cricket', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Invalid data', errors: errorMessages });
     }
 
-    if (type === 'cricket') {
-      const newItem = new celebcrickets(req.body);
+    if (category === 'cricket') {
+      const newItem = new celebcrickets({ name, type, title, description, image }); // Pass name to model constructor
       let saved = await newItem.save();
       console.log(saved);
       res.status(201).json({ success: true, message: 'Item created successfully', obj: saved });
-    } else if (type === 'football') {
+    } else if (category === 'football') {
       return res.status(400).json({ success: false, message: 'Invalid type' });
     } else {
       return res.status(400).json({ success: false, message: 'Invalid type' });
@@ -71,7 +73,7 @@ router.post('/create/cricket', async (req, res) => {
 
 router.post('/create/football', async (req, res) => {
   try {
-    const type = req.body.category;
+    const { name, category, type, title, description, image } = req.body; // Extract name from request body
 
     const { error } = celebrationSchema.validate(req.body, { abortEarly: false });
     if (error) {
@@ -79,7 +81,7 @@ router.post('/create/football', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Invalid data', errors: errorMessages });
     }
 
-    const newItem = new celebrations(req.body);
+    const newItem = new celebrations({ name, category, type, title, description, image }); // Pass name to model constructor
     let saved = await newItem.save();
 
     console.log(saved);

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './dataForm.css';
+import { Snackbar } from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
+
 
 const AddForm = () => {
   const [formData, setFormData] = useState({
+    name: '',
     category: '',
     type: '',
     title: '',
@@ -31,24 +35,54 @@ const AddForm = () => {
       });
 
       if (response.ok) {
+        setOpenSuccess(true);
         console.log('Data added successfully', response);
 
         const updatedDataResponse = await fetch(`https://s59-legendsmoveshub.onrender.com/api/data/football`);
         const updatedData = await updatedDataResponse.json();
 
         setGoalsData(updatedData);
+    } else {
+      if (response.status === 404) {
+        setOpenError(true);
+        console.error('Server responded with a status of 404 (Not Found)');
       } else {
-        console.error('Failed to add data');
+        throw new Error('Failed to add data');
       }
-    } catch (error) {
-      console.error('Error adding data:', error);
     }
+  } catch (error) {
+    setOpenError(true);
+    console.error('Error adding data:', error);
+  }
+};
+  
+  const [openSuccess, setOpenSuccess] = useState(false);
+  const [openError, setOpenError] = useState(false);
+
+  const handleSuccessClose = () => {
+    setOpenSuccess(false);
   };
   
+  const handleErrorClose = () => {
+    setOpenError(false);
+  };
+  
+
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="category">Category</label>
           <select
@@ -113,9 +147,19 @@ const AddForm = () => {
           View Data
         </Link>
       </form>
+      <Snackbar open={openSuccess} autoHideDuration={6000} onClose={handleSuccessClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+       <MuiAlert onClose={handleSuccessClose} severity="success" sx={{ width: '100%' }}>
+        Data added successfully
+       </MuiAlert>
+      </Snackbar>
+
+      <Snackbar open={openError} autoHideDuration={6000} onClose={handleErrorClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+       <MuiAlert onClose={handleErrorClose} severity="error" sx={{ width: '100%' }}>
+         Failed to add data
+       </MuiAlert>
+      </Snackbar>
     </div>
   );
 };
 
 export default AddForm;
-
