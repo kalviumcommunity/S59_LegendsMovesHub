@@ -8,24 +8,55 @@ import Grid from '@mui/material/Grid';
 import CircularProgress from '@mui/material/CircularProgress';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { IconButton, Modal, TextField, Button } from '@mui/material';
+import { IconButton, Modal, TextField, Button, Menu, MenuItem } from '@mui/material';
+import FilterListIcon from '@mui/icons-material/FilterList';
+
 
 const Cricket = () => {
   const [cricketData, setCricketData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [editedItem, setEditedItem] = useState({ _id: '', title: '', description: '' });
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [userNames, setUserNames] = useState([]); 
+  const [selectedUser, setSelectedUser] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/data/cricket')
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        setCricketData(res);
-      })
-      .catch(err => console.warn(err))
-      .finally(() => setLoading(false));
-  }, []);
+    fetchUserNames();
+    fetchCricketData();
+  }, [selectedUser]);
+
+  const fetchUserNames = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/data/cricket');
+      const data = await response.json();
+      const names = [...new Set(data.map(item => item.name))]; 
+      setUserNames(names);
+    } catch (error) {
+      console.error('Error fetching user names:', error);
+    }
+  };
+  
+const fetchCricketData = async () => {
+  try {
+    let url = 'http://localhost:8080/api/data/cricket';
+    if (selectedUser) {
+      url += `?name=${selectedUser}`; 
+    }
+    console.log("Fetch URL:", url); 
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const filteredData = selectedUser ? data.filter(item => item.name && item.name.toLowerCase() === selectedUser.toLowerCase()) : data;
+
+    console.log("Filtered Data:", filteredData); 
+    setCricketData(filteredData);
+  } catch (error) {
+    console.error('Error fetching cricket data:', error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleDeleteClick = async (itemId) => {
     try {
@@ -33,8 +64,6 @@ const Cricket = () => {
         method: 'DELETE',
       });
       setCricketData(prevData => prevData.filter(item => item._id !== itemId));
-
-      console.log('Item deleted successfully:', itemId);
     } catch (error) {
       console.error('Error deleting item:', error);
     }
@@ -82,14 +111,35 @@ const Cricket = () => {
     setEditedItem(prevItem => ({ ...prevItem, [name]: value }));
   };
 
-  const renderSegment = (segmentData, title) => {
-    console.log(segmentData);
-    console.log(`${title} Length:`, segmentData.length);
+  const handleFilterButtonClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
+  const handleMenuItemClick = (userName) => {
+    console.log("Selected User:", userName); 
+    setSelectedUser(userName);
+    setAnchorEl(null);
+  };
+  
+
+  const renderSegment = (segmentData, title) => {
     return (
       <div style={{ marginBottom: '2rem' }}>
         <Typography variant="h4" gutterBottom style={{ fontFamily: 'Playfair Display', color: '#333333' }}>
           {title}
+          <IconButton onClick={handleFilterButtonClick} color="primary">
+             <FilterListIcon  fontSize="large"/>
+          </IconButton>
+
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={() => setAnchorEl(null)}
+          >
+            {userNames.map((userName, index) => (
+              <MenuItem key={index} onClick={() => handleMenuItemClick(userName)}>{userName}</MenuItem>
+            ))}
+          </Menu>
         </Typography>
         <Grid container spacing={3}>
           {segmentData.map((item, index) => (
@@ -157,7 +207,7 @@ const Cricket = () => {
       {loading ? (
         <CircularProgress size={80} style={{ color: '#3498db' }} />
       ) : (
-        renderSegment(cricketData, 'Iconic Shots and Celebrations')
+        selectedUser ? renderSegment(cricketData, `Iconic Shots and Celebrations by ${selectedUser}`) : renderSegment(cricketData, 'Iconic Shots and Celebrations')
       )}
     </Container>
   );
