@@ -28,7 +28,7 @@ const Cricket = () => {
 
   const fetchUserNames = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/data/cricket');
+      const response = await fetch('https://s59-legendsmoveshub.onrender.com/api/data/cricket');
       const data = await response.json();
       const names = [...new Set(data.map(item => item.name))]; 
       setUserNames(names);
@@ -39,7 +39,7 @@ const Cricket = () => {
   
 const fetchCricketData = async () => {
   try {
-    let url = 'http://localhost:8080/api/data/cricket';
+    let url = 'https://s59-legendsmoveshub.onrender.com/api/data/cricket';
     if (selectedUser) {
       url += `?name=${selectedUser}`; 
     }
@@ -60,7 +60,7 @@ const fetchCricketData = async () => {
 
   const handleDeleteClick = async (itemId) => {
     try {
-      await fetch(`http://localhost:8080/api/data/cricket/delete/${itemId}`, {
+      await fetch(`https://s59-legendsmoveshub.onrender.com/api/data/cricket/delete/${itemId}`, {
         method: 'DELETE',
       });
       setCricketData(prevData => prevData.filter(item => item._id !== itemId));
@@ -77,7 +77,7 @@ const fetchCricketData = async () => {
 
   const handleEditSave = async () => {
     try {
-      await fetch(`http://localhost:8080/api/data/cricket/update/${editedItem._id}`, {
+      await fetch(`https://s59-legendsmoveshub.onrender.com/api/data/cricket/update/${editedItem._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

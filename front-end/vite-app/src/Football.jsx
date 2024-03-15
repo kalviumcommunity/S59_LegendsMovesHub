@@ -27,7 +27,7 @@ const Football = () => {
 
   const fetchUserNames = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/data/football');
+      const response = await fetch('https://s59-legendsmoveshub.onrender.com/api/data/football');
       const data = await response.json();
       const names = [...new Set(data.map(item => item.name))];
       setUserNames(names);
@@ -38,7 +38,7 @@ const Football = () => {
 
   const  fetchFootballData = async () => {
     try {
-      let url = 'http://localhost:8080/api/data/football';
+      let url = 'https://s59-legendsmoveshub.onrender.com/api/data/football';
       if (selectedUser) {
         url += `?name=${selectedUser}`; 
       }
@@ -59,7 +59,7 @@ const Football = () => {
 
   const handleDeleteClick = async (itemId) => {
     try {
-      await fetch(`http://localhost:8080/api/data/football/delete/${itemId}`, {
+      await fetch(`https://s59-legendsmoveshub.onrender.com/api/data/football/delete/${itemId}`, {
         method: 'DELETE',
       });
       setGoalsData(prevData => prevData.filter(item => item._id !== itemId));
@@ -76,7 +76,7 @@ const Football = () => {
 
   const handleEditSave = async () => {
     try {
-      await fetch(`http://localhost:8080/api/data/football/update/${editedItem._id}`, {
+      await fetch(`https://s59-legendsmoveshub.onrender.com/api/data/football/update/${editedItem._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

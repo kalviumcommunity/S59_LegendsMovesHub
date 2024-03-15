@@ -26,7 +26,7 @@ const AddForm = () => {
     console.log("Loading.....")
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/api/create/${formData.category}`, {
+      const response = await fetch(`https://s59-legendsmoveshub.onrender.com/api/create/${formData.category}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
