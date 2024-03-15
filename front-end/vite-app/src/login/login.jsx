@@ -101,7 +101,7 @@ const SignUpForm = () => {
   const handleSignUp = async () => {
     if (isFormValid()) {
       try {
-        const response = await fetch('http://localhost:8080/api/signup', {
+        const response = await fetch('https://s59-legendsmoveshub.onrender.com/api/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -117,7 +117,6 @@ const SignUpForm = () => {
           console.log('User registered successfully');
           setOpenSuccessSnackbar(true);
 
-          // Additional actions on success if needed
 
         } else {
           console.error('User registration failed:', data.message);
