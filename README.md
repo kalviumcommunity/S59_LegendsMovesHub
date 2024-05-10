@@ -18,6 +18,6 @@ LegendsMovesHub is a dynamic and engaging platform designed to celebrate legenda
 - **Community Contributions:** Users can suggest new signature moves or goal celebrations, fostering a collaborative community.
 - **Voting System:** Vote on the best move/celebration to promote creativity and recognition.
 
-Front-end deployment link - https://main--statuesque-duckanoo-2b1750.netlify.app/
+Front-end deployment link - https://legendsmoveshub.netlify.app/
 
 Back-end deployment link - https://s59-legendsmoveshub.onrender.com/
